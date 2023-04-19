@@ -204,6 +204,7 @@
             height: 100%;
             background-color: #67c23a;
             border-radius: 6px;
+            transition: width .8s;
         }
         .progress .done-text {
             width: 30px;
@@ -216,7 +217,6 @@
         您的浏览器不支持 audio 元素
     </audio>
     <div class="wrapper">
-        <div id="js-list" class="list"></div>
         <div class="content-box">
             <span class="js-romanic show-pin"></span>
             <div class="text-box hiragana">
@@ -235,7 +235,7 @@
         </div>
         <div class="group-btns">
             <button type="button" onclick="playBefore()" class="button">上一个</button>
-            <button type="button" onclick="control()" class="button">随机播放</button>
+            <button type="button" onclick="control()" class="js-play button">播放</button>
             <button type="button" onclick="playAfter()" class="button">下一个</button>
         </div>
         <div class="bottom-origin">
@@ -259,10 +259,15 @@
     let isPlay = false
     document.getElementById('js-total').innerHTML = `/${total}`
 
-    showList()
-
+    const $playBtn = document.getElementsByClassName('js-play')[0]
     function control () {
-        isPlay ? pause() : play()
+        if (isPlay) {
+            $playBtn.innerHTML = '播放'
+            pause()
+        } else {
+            $playBtn.innerHTML = '暂停'
+            play()
+        }
     }
 
     function play () {
@@ -328,6 +333,8 @@
         showProgress()
         pauseTimer = setTimeout(() => {
             $audio.pause()
+        }, 1000)
+        setTimeout(() => {
             showText(item)
         }, 1000)
     }
@@ -387,16 +394,6 @@
         groupTimeRandom = JSON.parse(JSON.stringify(groupTime)).sort((a, b) => {
             return Math.random() > 0.5 ? -1 : 1
         })
-    }
-
-    function showList () {
-        const total = groupTimeRandom.length
-        let result = ''
-        groupTimeRandom.forEach(item => {
-            const { hiragana } = item
-            // res
-        })
-        document.getElementById('js-list').innerHTML = groupTimeRandom.map(item => item.hiragana).join()
     }
 </script>
 </html>
