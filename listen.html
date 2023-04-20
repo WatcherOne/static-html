@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,13 @@
         html {
             height: 100%;
         }
+
         body {
             height: 100%;
             background: #f8f8f8;
             margin: 0;
         }
+
         .wrapper {
             height: 100%;
             display: flex;
@@ -24,6 +27,7 @@
             padding-bottom: 15px;
             box-sizing: border-box;
         }
+
         .content-box {
             height: 50%;
             display: flex;
@@ -33,6 +37,7 @@
             justify-content: center;
             flex: 1;
         }
+
         .content-box .show-pin {
             display: inline-block;
             width: 100px;
@@ -43,6 +48,7 @@
             overflow: hidden;
             text-align: center;
         }
+
         .content-box .text-box {
             padding: 10px;
             border: 2px dashed #dedede;
@@ -50,14 +56,17 @@
             margin-bottom: 10px;
             box-sizing: border-box;
         }
+
         .content-box .text-box.hiragana {
             width: 104px;
             height: 104px;
         }
+
         .content-box .text-box.katakana {
             width: 74px;
             height: 74px;
         }
+
         .content-box .text-box::before {
             position: absolute;
             content: '';
@@ -66,6 +75,7 @@
             left: calc(50% - 1px);
             height: 100%;
         }
+
         .content-box .text-box::after {
             position: absolute;
             content: '';
@@ -74,6 +84,7 @@
             left: 0;
             width: 100%;
         }
+
         .content-box .show-text {
             display: inline-block;
             font-size: 18px;
@@ -82,16 +93,19 @@
             z-index: 10;
             overflow: hidden;
         }
+
         .content-box .show-text.js-hiragana {
             font-size: 80px;
             height: auto;
             line-height: 80px;
         }
+
         .content-box .show-text.js-katakana {
             font-size: 50px;
             height: auto;
             line-height: 50px;
         }
+
         .group-btns {
             width: 100%;
             display: flex;
@@ -99,46 +113,59 @@
             justify-content: space-around;
             align-items: center;
         }
+
         @keyframes show {
             0% {
                 width: 0;
             }
+
             25% {
                 width: 20%;
             }
+
             50% {
                 width: 50%;
             }
+
             75% {
                 width: 75%;
             }
+
             100% {
                 width: 100%;
             }
         }
+
         .active-note {
             animation: show 1s linear forwards;
         }
+
         @keyframes show-pin {
             0% {
                 width: 0;
             }
+
             25% {
                 width: 25px;
             }
+
             50% {
                 width: 50px;
             }
+
             75% {
                 width: 75px;
             }
+
             100% {
                 width: 100px;
             }
         }
+
         .active-pin {
             animation: show-pin .8s linear forwards;
         }
+
         .button {
             width: 25%;
             padding: 7px 10px;
@@ -151,6 +178,7 @@
             box-shadow: 1px 1px 5px rgba(67, 134, 67, 0.5);
             cursor: pointer;
         }
+
         .bottom-origin {
             width: 100%;
             display: flex;
@@ -159,24 +187,28 @@
             align-items: center;
             margin-top: 10px;
         }
+
         .button.empty {
             height: 0;
             background-color: initial;
             border-width: 0;
             box-shadow: none;
         }
+
         .button.reset {
             color: #909399;
             background-color: #f4f4f5;
             border-color: #d3d4d6;
             box-shadow: 1px 1px 5px rgba(155, 155, 150, 0.5);
         }
+
         .button.primary {
             box-shadow: 1px 1px 5px rgba(59, 59, 51, 0.5);
             background-color: #0367a6;
             border-color: #0367a6;
             background-image: linear-gradient(90deg, #0367a6 0%, #008997 74%);
         }
+
         .progress {
             display: flex;
             width: 100%;
@@ -189,6 +221,7 @@
             padding: 0 15px;
             box-sizing: border-box;
         }
+
         .progress .current-progress {
             flex: 1;
             position: relative;
@@ -196,6 +229,7 @@
             border-radius: 6px;
             height: 8px;
         }
+
         .progress .current-progress .progress-percent {
             position: absolute;
             top: 0;
@@ -206,14 +240,16 @@
             border-radius: 6px;
             transition: width .8s;
         }
+
         .progress .done-text {
             width: 30px;
             text-align: right;
         }
     </style>
 </head>
+
 <body>
-    <audio id="audio" src="./五十音.mp3" preload="auto">
+    <audio id="audio" src="./50.m4a" preload>
         您的浏览器不支持 audio 元素
     </audio>
     <div class="wrapper">
@@ -247,6 +283,7 @@
 </body>
 <script src="./data.js"></script>
 <script>
+
     let groupTimeRandom = JSON.parse(JSON.stringify(groupTime)).sort((a, b) => {
         return Math.random() > 0.5 ? -1 : 1
     })
@@ -260,7 +297,7 @@
     document.getElementById('js-total').innerHTML = `/${total}`
 
     const $playBtn = document.getElementsByClassName('js-play')[0]
-    function control () {
+    function control() {
         if (isPlay) {
             $playBtn.innerHTML = '播放'
             pause()
@@ -270,7 +307,7 @@
         }
     }
 
-    function play () {
+    function play() {
         timer && clearTimeout(timer)
         if (i >= total - 1) {
             isPlay = false
@@ -284,7 +321,7 @@
         }, 3000)
     }
 
-    function pause () {
+    function pause() {
         pauseTimer && clearTimeout(pauseTimer)
         timer && clearTimeout(timer)
         $audio.pause()
@@ -297,7 +334,7 @@
      *  2. 隐藏文本动作的 class
      *  3. 然后位置往上移动 (到第一个时则从最后开始)
      **/
-     function playBefore () {
+    function playBefore() {
         timer && clearTimeout(timer)
         i = (i === 0 || i === -1) ? total - 1 : i - 1
         onPlay()
@@ -309,9 +346,9 @@
      *  2. 隐藏文本动作的 class
      *  3. 然后位置往前进（到最后一个则从第一个开始）
      **/
-    function playAfter () {
+    function playAfter() {
         timer && clearTimeout(timer)
-        i = (i === -1 || i === total- 1) ? 0 : i + 1
+        i = (i === -1 || i === total - 1) ? 0 : i + 1
         onPlay()
     }
 
@@ -322,7 +359,7 @@
      *  3. 开始播放, 记录下一个新位置
      *  4. 播放1s后 音频暂定并开始展示文本
      **/
-    function onPlay () {
+    function onPlay() {
         hideText()
         hideAction()
         pauseTimer && clearTimeout(pauseTimer)
@@ -339,7 +376,7 @@
         }, 1000)
     }
 
-    function showProgress () {
+    function showProgress() {
         const $progress = document.getElementById('js-percent')
         const $done = document.getElementsByClassName('js-done')[0]
         $done.innerHTML = Math.min(i + 1, total)
@@ -351,7 +388,7 @@
     const $hiragana = document.getElementsByClassName('js-hiragana')[0]
     const $katakana = document.getElementsByClassName('js-katakana')[0]
 
-    function showText (item = {}) {
+    function showText(item = {}) {
         const { romanic, hiragana, katakana } = item
         $romanic.classList.add('active-pin')
         $hiragana.classList.add('active-note')
@@ -361,19 +398,19 @@
         $katakana.innerHTML = katakana
     }
 
-    function hideText () {
+    function hideText() {
         $romanic.innerHTML = ''
         $hiragana.innerHTML = ''
         $katakana.innerHTML = ''
     }
 
-    function hideAction () {
+    function hideAction() {
         $romanic.classList.remove('active-pin')
         $hiragana.classList.remove('active-note')
         $katakana.classList.remove('active-note')
     }
 
-    function clear () {
+    function clear() {
         pauseTimer && clearTimeout(pauseTimer)
         timer && clearTimeout(timer)
         i = -1
@@ -384,16 +421,17 @@
     }
 
     //  按顺序播放
-    function handleFullPlay () {
+    function handleFullPlay() {
         clear()
         $audio.play()
     }
 
-    function handleResetSort () {
+    function handleResetSort() {
         clear()
         groupTimeRandom = JSON.parse(JSON.stringify(groupTime)).sort((a, b) => {
             return Math.random() > 0.5 ? -1 : 1
         })
     }
 </script>
+
 </html>
