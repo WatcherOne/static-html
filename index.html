@@ -4,226 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>五十音假名</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        html {
-            height: 100%;
-        }
-        body {
-            margin: 0;
-            height: 100%;
-            background: #f8f8f8;
-        }
-        .wrapper {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: center;
-        }
-        .wrapper .box {
-            flex: 1;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        .wrapper .operate-btns {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .wrapper .operate-btns .btn {
-            padding: 5px 10px;
-            margin-right: 10px;
-            text-align: center;
-            border: 1px solid #dadde6;
-            border-radius: 5px;
-            background-color: white;
-            margin-bottom: 5px;
-            font-size: 13px;
-            color: #666;
-        }
-        .wrapper .choose-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-around;
-            margin-bottom: 5px;
-        }
-        .wrapper .choose-row .item {
-            width: 20%;
-            text-align: center;
-            margin-bottom: 5px;
-            background-color: white;
-        }
-        .wrapper .choose-row .item .text {
-            display: inline-block;
-            border-radius: 5px;
-            border: 1px solid #dadde6;
-            padding: 10px 15px;
-            box-sizing: border-box;
-        }
-        .wrapper .choose-row .item .text.select {
-            color: white;
-            border-color: #7ab975;
-            background-color: #7ab975;
-        }
-        .wrapper .choose-kana {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 2px -2px 3px hsla(0, 0%, 7%, .1);
-        }
-        .wrapper .choose-kana .kana-item {
-            width: 50%;
-            line-height: 40px;
-            text-align: center;
-            color: #666;
-            background-color: #f3f3f3;
-            border-right: 1px solid #dedede;
-        }
-        .wrapper .choose-kana .kana-item.select {
-            color: white;
-            background-color: #4678a7;
-        }
-        .wrapper .choose-kana .kana-item:last-child {
-            border-right-width: 0;
-        }
-    </style>
+    <title>五十音假名识别</title>
+    <link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./iconfont.js"></script>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="container">
+        <!-- 顶部有鼓励人心的话 -->
+        <!-- Todo show and 展开弹窗的Icon -->
         <div id="box" class="box"></div>
         <div class="operate-btns">
-            <div onclick="handleClear()" class="btn clear">清空</div>
-            <div onclick="handleReset()" class="btn reset">刷新</div>
-        </div>
-        <div onclick="handleSelectRow()" class="choose-row">
-            <div class="item">
-                <span class="text js-row select" data-value="aRow">あ行</span>
+            <div onclick="handleSelectKana()" class="button kana-li select" data-value="hiragana">平假名</div>
+            <div onclick="handleSelectKana()" class="button kana-li" data-value="katakana">片假名</div>
+            <div onclick="handleClear()" class="button">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-clear"></use>
+                </svg>
             </div>
-            <div class="item">
-                <span class="text js-row" data-value="kRow">か行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="sRow">さ行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="tRow">た行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="nRow">な行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="hRow">は行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="mRow">ま行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="yRow">や行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="rRow">ら行</span>
-            </div>
-            <div class="item">
-                <span class="text js-row" data-value="wRow">わ行</span>
+            <div onclick="handleReset()" class="button reset">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-reset"></use>
+                </svg>
             </div>
         </div>
-        <div onclick="handleSelectKana()" class="choose-kana">
-            <div class="kana-item select" data-value="1">平假名</div>
-            <div class="kana-item" data-value="2">片假名</div>
+    </div>
+    <div onclick="closeMask()" id="mask-overlay" class="mask hide">
+        <div class="mask-content">
+            <div onclick="handleSelectRow()" id="type-list" class="type-list">
+                <div class="item select" data-value="a">あ行</div>
+                <div class="item" data-value="ka">か行</div>
+                <div class="item" data-value="sa">さ行</div>
+                <div class="item" data-value="ta">た行</div>
+                <div class="item" data-value="na">な行</div>
+                <div class="item" data-value="ha">は行</div>
+                <div class="item" data-value="ma">ま行</div>
+                <div class="item" data-value="ya">や行</div>
+                <div class="item" data-value="ra">ら行</div>
+                <div class="item" data-value="wa">わ行</div>
+            </div>
+            <div onclick="confirmSelectRow()" class="type-submit">
+                <div class="confirm">确认</div>
+            </div>
         </div>
     </div>
 </body>
-<script>
-    const $box = document.querySelector('#box')
-    let selectRow = []
-    let selectKana = '1'
-    const wordList = {
-        aRow: [{ 1: 'あ', 2: 'ア' }, { 1: 'い', 2: 'イ' }, { 1: 'う', 2: 'ウ' }, { 1: 'え', 2: 'エ' }, { 1: 'お', 2: 'オ' }],
-        kRow: [{ 1: 'か', 2: 'カ' }, { 1: 'き', 2: 'キ' }, { 1: 'く', 2: 'ク' }, { 1: 'け', 2: 'ケ' }, { 1: 'こ', 2: 'コ' }],
-        sRow: [{ 1: 'さ', 2: 'サ' }, { 1: 'し', 2: 'シ' }, { 1: 'す', 2: 'ス' }, { 1: 'せ', 2: 'セ' }, { 1: 'そ', 2: 'ソ' }],
-        tRow: [{ 1: 'た', 2: 'タ' }, { 1: 'ち', 2: 'チ' }, { 1: 'つ', 2: 'ツ' }, { 1: 'て', 2: 'テ' }, { 1: 'と', 2: 'ト' }],
-        nRow: [{ 1: 'な', 2: 'ナ' }, { 1: 'に', 2: 'ニ' }, { 1: 'ぬ', 2: 'ヌ' }, { 1: 'ね', 2: 'ネ' }, { 1: 'の', 2: 'ノ' }],
-        hRow: [{ 1: 'は', 2: 'ハ' }, { 1: 'ひ', 2: 'ヒ' }, { 1: 'ふ', 2: 'フ' }, { 1: 'へ', 2: 'ヘ' }, { 1: 'ほ', 2: 'ホ' }],
-        mRow: [{ 1: 'ま', 2: 'マ' }, { 1: 'み', 2: 'ミ' }, { 1: 'む', 2: 'ム' }, { 1: 'め', 2: 'メ' }, { 1: 'も', 2: 'モ' }],
-        yRow: [{ 1: 'や', 2: 'ヤ' }, { 1: 'い', 2: 'イ' }, { 1: 'ゆ', 2: 'ユ' }, { 1: 'え', 2: 'エ' }, { 1: 'よ', 2: 'ヨ' }],
-        rRow: [{ 1: 'ら', 2: 'ラ' }, { 1: 'り', 2: 'リ' }, { 1: 'る', 2: 'ル' }, { 1: 'れ', 2: 'レ' }, { 1: 'ろ', 2: 'ロ' }],
-        wRow: [{ 1: 'わ', 2: 'ワ' }, { 1: 'い', 2: 'イ' }, { 1: 'う', 2: 'ウ' }, { 1: 'え', 2: 'エ' }, { 1: 'を', 2: 'ヲ' }]
-    }
-    let showWordList = []
-
-    window.onload = () => {
-        selectRow.push('aRow')
-        createList()
-    }
-
-    function handleSelectRow () {
-        const $target = event.target
-        const { value } = $target.dataset || {}
-        if (!value) return
-        $target.classList.toggle('select')
-        const index = selectRow.indexOf(value)
-        index > -1 ? selectRow.splice(index, 1) : selectRow.push(value)
-        if (!selectRow.length) {
-            $box.innerHTML = '请选择一行'
-            return
-        }
-        createList()
-    }
-
-    /**
-     *   产生新的单词表 
-     */
-    function createList () {
-        if (!selectRow.length) return
-        const list = selectRow.map(rowKey => {
-            return wordList[rowKey]
-        }).flat()
-        const length = selectRow.length > 1 ? selectRow.length * 10 : 20
-        const result = []
-        showWordList = []
-        for (let i = 0; i < length; i++) {
-            const index = Math.ceil(Math.random() * list.length) - 1
-            showWordList.push(list[index])
-            result.push(list[index][selectKana])
-        }
-        $box.innerHTML = result.join()
-    }
-
-    function handleSelectKana () {
-        const $target = event.target
-        const { value } = $target.dataset || {}
-        if (value === selectKana) return
-        const $li = document.querySelectorAll('.kana-item')
-        $li.forEach($el => $el.classList.remove('select'))
-        $target.classList.add('select')
-        selectKana = value
-        if (!showWordList.length) return
-        $box.innerHTML = showWordList.map(item => {
-            return item[selectKana]
-        }).join()
-    }
-
-    function handleClear () {
-        selectRow = []
-        const $li = document.querySelectorAll('.js-row')
-        $li.forEach($el => $el.classList.remove('select'))
-        showWordList = []
-        $box.innerHTML = '请选择一行'
-    }
-
-    function handleReset () {
-        createList()
-    }
-</script>
+<script src="./kana-list.js"></script>
+<script src="./common.js"></script>
+<script src="./index.js"></script>
 </html>
