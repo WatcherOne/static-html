@@ -13,6 +13,20 @@ body {
     display: none;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
 .mask {
     width: 100%;
     height: 100%;
