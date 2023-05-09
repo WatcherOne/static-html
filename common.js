@@ -1,10 +1,12 @@
 const $mask = document.getElementById('mask-overlay')
 
 function closeMask () {
-    event.stopPropagation()
-    event.preventDefault()
+    if (event) {
+        event.stopPropagation()
+        event.preventDefault()
+    }
     $mask && $mask.classList.add('hide')
-    afterCloseMask && afterCloseMask()
+    window.afterCloseMask && window.afterCloseMask()
 }
 
 function openMask () {

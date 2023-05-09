@@ -55,20 +55,6 @@ body {
     }
 }
 
-/* 通用样式, 可覆盖 */
-.mask .mask-content {
-    width: 30%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: auto;
-    z-index: 102;
-    background-color: #f8f8f8;
-    transform: translateX(-100%);
-    animation: mask-show .3s linear forwards;
-}
-
 .icon {
     width: 1.2em;
     height: 1.2em;
