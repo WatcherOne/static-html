@@ -21,7 +21,7 @@ window.onload = () => {
             setTimeout(() => {
                 closeMask()
                 $copyInput.remove()
-            }, 600)
+            }, 500)
         })
     })
 }

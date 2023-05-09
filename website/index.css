@@ -6,7 +6,7 @@
 .wrapper .search-bar {
     margin: 0 auto;
     text-align: center;
-    padding: 20px 30px 15px 40px;
+    padding: 20px 30px 10px 40px;
     position: relative;
     display: flex;
     align-items: center;
@@ -40,18 +40,34 @@
 
 .wrapper .list-box .list-item {
     width: 100%;
-    padding: 5px 0 5px 5px;
-    border-bottom: 1px solid #dedede;
+    padding: 6px 10px 6px 5px;
+    border: 1px solid #dedede;
+    border-bottom-width: 0;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .list-box .list-item:last-child {
+    border-bottom-width: 1px;
 }
 
 .wrapper .list-box .list-item .serial {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
     font-weight: bold;
 }
 
 .wrapper .list-box .list-item .link {
     text-decoration: none;
     color: #0367a6;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 15px;
 }
 
 .wrapper .list-box .list-item .icon {
@@ -59,6 +75,7 @@
     height: 1em;
     margin-left: 5px;
     color: rgb(54, 148, 95);
+    cursor: pointer;
 }
 
 @keyframes moveTop {
@@ -95,7 +112,7 @@
     box-sizing: border-box;
     font-size: 14px;
     color: #f8f8f8;
-    animation: moveTop linear .6s forwards;
+    animation: moveTop linear .5s forwards;
 }
 
 .mask-content.hide {
