@@ -62,37 +62,58 @@ const urlList = [
         desc: 'switch520.com原域名已改. 国内游戏下载网址, 服务器在香港, 可以直接下载, 广告太多了'
     },
     {
+        id: 8,
+        title: '布谷TV',
+        url: 'https://www.bugutv.net',
+        introduction: '布谷TV4K视频源',
+        keywords: 'vpn',
+        detailUrl: 'detail/8.html',
+        desc: '可以直接下载, 下载任务时需要vpn或加速器'
+    },
+    {
+        id: 9,
         title: 'torrents',
         url: 'https://rarbgprx.org/torrents.php',
         introduction: '2K~4K视频源',
-        keywords: 'vpn',
-        desc: '需要翻墙'
+        keywords: 'vpn!',
+        detailUrl: 'detail/9.html',
+        desc: '需要翻墙才能访问'
     },
     {
+        id: 10,
         title: 'OpenAI',
         url: 'https://openai.com',
         introduction: 'openAI-官网',
-        keywords: 'vpn?',
+        keywords: 'chatGPT',
+        detailUrl: 'detail/10.html',
         desc: 'openAI公司官网'
     },
     {
+        id: 11,
         title: 'openAI.chat',
         url: 'https://chat.openai.com',
         introduction: 'openAI-chat',
-        keywords: 'vpn!',
+        keywords: 'chatGPT,vpn!',
+        detailUrl: 'detail/11.html',
         desc: '提供chatGPT产品服务, 使用平台, 需要 VPN, 翻墙了也不一定能访问到，专属的vpn线路',
-        supplement: '账号：zhubo.watcher@gmail.com[谷歌账号], 密码大小写'
+        supplement: '账号：zhubo.watcher@gmail.com[谷歌账号], 密码大写'
     },
     {
+        id: 12,
         title: 'openAI.doc',
         url: 'https://platform.openai.com',
         introduction: 'openAI-doc',
+        keywords: 'chatGPT,vpn!',
+        detailUrl: 'detail/12.html',
         desc: '提供用户登录API文档说明, 常用示例等功能'
     },
     {
+        id: 13,
         title: 'openAI.api',
         url: 'https://api.openai.com',
         introduction: 'openAI-api',
+        keywords: 'chatGPT,vpn!',
+        detailUrl: 'detail/13.html',
         desc: '提供后端接口的服务器, 此url就是一个api接口'
     }
 ]

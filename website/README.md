@@ -1,7 +1,20 @@
 ###### 收藏网址
 
-~ Todo
-1. 验证网址 并截图 转为 svg 设置为首页面
--- 改成一个单独的页面详细 - 可以自定义加图片内容以及说明
-2. 做一个详细页面 并 + 跳转详细 + 跳转链接
-3. hover的浅蓝色 + PC端显示问题
+> 常用网址的收藏
+
+- [在线制作二维码](https://link-to-qr.com)
+- [在线制作svg图](https://editor.method.ac)
+- [打印pdf插件](https://printjs.crabbly.com)
+- [外网虚拟号码服务平台](https://sms-activate.org)
+- [盗版游戏下载A-Byrutor](https://byrutdb.org)
+- [盗版游戏下载B-RuTracker](https://rutracker.net)
+- [盗版游戏下载C-Switch520](https://download.fourpetal.com)
+- [布谷TV4K视频源](https://www.bugutv.net)
+- [2K~4K视频源](https://rarbgprx.org/torrents.php)
+- [openAI-官网](https://openai.com)
+- [openAI-chat](https://chat.openai.com)
+- [openAI-doc](https://platform.openai.com)
+- [openAI-api](https://api.openai.com)
+
+> Todo
+- 服务器加载图片太慢
