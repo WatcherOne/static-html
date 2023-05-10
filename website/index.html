@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <link rel="shortcut icon" href="./favicon.ico?v=119" type="image/x-icon">
     <title>收藏网址</title>
     <link rel="stylesheet" href="../common.css">
     <link rel="stylesheet" href="./index.css">
@@ -13,12 +14,12 @@
     <section class="wrapper">
         <div class="search-bar">
             <input type="text" onkeydown="handleKeydown()" placeholder="请输入关键词搜索" id="search-input" class="search-input">
-            <svg id="block-icon" onclick="handleChange()" data-value="1" class="icon" aria-hidden="true">
+            <!-- <svg id="block-icon" onclick="handleChange()" data-value="1" class="icon" aria-hidden="true">
                 <use xlink:href="#icon-block"></use>
             </svg>
             <svg id="bar-icon" onclick="handleChange()" data-value="2" class="icon hide" aria-hidden="true">
                 <use xlink:href="#icon-bar"></use>
-            </svg>
+            </svg> -->
         </div>
         <div id="list-box" class="list-box"></div>
     </section>

@@ -1,0 +1,159 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 25px 0;
+    box-sizing: border-box;
+}
+
+.stress {
+    background-color: #ffe487;
+}
+
+@keyframes moveTop {
+    0% {
+        top: 15%;
+    }
+    25% {
+        top: 14%;
+    }
+    50% {
+        top: 13%;
+    }
+    75% {
+        top: 12%;
+    }
+    100% {
+        top: 11%;
+    }
+}
+
+.mask-content {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    z-index: 102;
+    transform: translateX(-50%);
+    background-color: rgb(51, 51, 51, .7);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #f8f8f8;
+    animation: moveTop linear .5s forwards;
+}
+
+.mask-content.hide {
+    display: none;
+}
+
+.wrapper .top-content {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.wrapper .top-content .title {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(54, 148, 95);
+}
+
+.wrapper .top-content .copy-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: 10px;
+}
+
+.wrapper .link {
+    text-decoration: none;
+    color: #0367a6;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.wrapper .label-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.wrapper .label-content .label {
+    font-size: 13px;
+    padding: 2px 8px 4px;
+    background-color: #fdf6ec;
+    color: #e6a23c;
+    border: 1px solid #faecd8;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.wrapper .label-content .label+.label {
+    margin-left: 5px;
+}
+
+.wrapper .box {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 10px 0;
+}
+
+.wrapper .box .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.wrapper .content .text {
+    line-height: 22px;
+    font-size: 14px;
+    color: #666;
+    align-self: flex-start;
+}
+
+.wrapper .content .img-title {
+    margin: 10px 0 5px;
+    font-size: 12px;
+    color: #888;
+    align-self: flex-start;
+}
+
+.wrapper .content .img {
+    width: 100%;
+    background-color: white;
+}
+
+.wrapper .content .supplement {
+    line-height: 22px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #0367a6;
+}
+
+.wrapper .content .supplement .supply-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(54, 148, 95);  
+}
+
+.wrapper .content .supplement .supply-text {
+    font-size: 14px;
+    padding-left: 10px;
+    color: #787;
+}
+
+.wrapper .content .supplement .extra {
+    color: lightcoral;
+    padding-left: 0;
+}

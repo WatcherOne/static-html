@@ -11,6 +11,7 @@ window.onload = () => {
             const { url } = event.currentTarget.dataset
             if (!url) return
             const $copyInput = document.createElement('input')
+            $copyInput.readOnly = true
             $copyInput.style.position = 'absolute'
             $copyInput.style.top = '-10000px'
             $copyInput.value = url
@@ -34,10 +35,10 @@ function renderUrlList () {
         return title.includes(value) || url.includes(value) || introduction.includes(value) || desc.includes(value)
     }) : urlList
     renderList.forEach((item, index) => {
-        const { introduction, url } = item
+        const { introduction, url, detailUrl } = item
         result += `<div class="list-item">
             <span class="serial">${index + 1}.</span>
-            <a href="${url}" target="_blank" class="link">【${introduction}】</a>
+            <a href="${detailUrl}" class="link">【${introduction}】</a>
             <svg class="icon copy" data-url="${url}" aria-hidden="true">
                 <use xlink:href="#icon-fuzhi"></use>
             </svg>
