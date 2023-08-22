@@ -7,7 +7,6 @@ html, body {
 .container {
     padding: 30px 15% 0;
     box-sizing: border-box;
-    counter-reset: methodCount;
 }
 
 .hide {
@@ -31,6 +30,7 @@ html, body {
     padding: 8px 10px;
     background-color: #f6f6f6;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .container .header .title {
@@ -39,7 +39,6 @@ html, body {
 }
 
 .container .header .expand {
-    cursor: pointer;
     transition: all .1s ease;
 }
 
@@ -58,6 +57,7 @@ html, body {
 .container .box {
     height: 0;
     overflow: hidden;
+    counter-reset: methodCount;
 }
 
 .container .box.expand {
@@ -130,7 +130,7 @@ html, body {
     height: 200px;
 }
 
-.left, .right {
+.left, .right, .center {
     height: 100%;
 }
 
@@ -140,6 +140,10 @@ html, body {
 
 .right {
     background-color: aquamarine;
+}
+
+.center {
+    background-color: rgb(134, 165, 223);
 }
 
 .method-1-1  .left {
@@ -185,5 +189,67 @@ html, body {
 }
 
 .method-1-4 .right {
+    flex: 1;
+}
+
+.method-2-1 .left {
+    float: left;
+    width: 120px;
+}
+
+.method-2-1 .right {
+    float: right;
+    width: 120px;
+}
+
+.method-2-1 .center {
+    margin: 0 120px;
+}
+
+.method-2-2 .left {
+    float: left;
+    width: 120px;
+}
+
+.method-2-2 .right {
+    float: right;
+    width: 120px;
+}
+
+.method-2-2 .center {
+    width: calc(100% - 240px);
+    margin-left: 120px;
+}
+
+.method-2-3 {
+    padding: 0 120px;
+}
+
+.method-2-3 .left {
+    float: left;
+    width: 120px;
+    margin-left: -120px;
+}
+
+.method-2-3 .right {
+    float: right;
+    width: 120px;
+    margin-right: -120px;
+}
+
+.method-2-4 {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.method-2-4 .left {
+    width: 120px;
+}
+
+.method-2-4 .right {
+    width: 120px;
+}
+
+.method-2-4 .center {
     flex: 1;
 }

@@ -12,7 +12,7 @@
             <div class="title">左边定宽，右边自适应</div>
             <div class="expand" title="展开/缩放"></div>
         </div>
-        <div class="box clearfix">
+        <div class="box">
             <div class="subtitle">
                 <span class="sub-title">float + margin</span>
                 <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
@@ -111,6 +111,151 @@
                 <div class="right"></div>
             </div>
         </div>
+        <div onclick="handleToggleExpand(this)" class="header down">
+            <div class="title">左右定宽，中间自适应（圣杯布局）</div>
+            <div class="expand" title="展开/缩放"></div>
+        </div>
+        <div class="box">
+            <div class="subtitle">
+                <span class="sub-title">float</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: left;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: right;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.center {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 120px;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;// 有顺序位置，中间元素必须在最后面</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;// 如果中间元素在中间，则最后一个元素会掉下去，因为上面元素占满一行了</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-2-1">
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="center"></div>
+            </div>
+            <div class="subtitle">
+                <span class="sub-title">float + calc</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: left;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: right;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.center {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: calc(100% - 240px);</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;margin-left: 120px;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;// 也有顺序位置，中间元素必须在最后面</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-2-2">
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="center"></div>
+            </div>
+            <div class="subtitle">
+                <span class="sub-title">margin负值</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.parent-box {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;padding: 0 120px;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;// 让父元素盒子在左右预留空间，左右元素向两次填充</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: left;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;margin-left: -120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: right;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;margin-right: -120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.center {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;// 不用设置任何样式</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;// 也有顺序位置，中间元素必须在最后面</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-2-3">
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="center"></div>
+            </div>
+            <div class="subtitle">
+                <span class="sub-title">flex</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.parent-box {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;display: flex</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;flex-wrap: nowrap</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.center {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;flex: 1;</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-2-4">
+                <div class="left"></div>
+                <div class="center"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <div onclick="handleToggleExpand(this)" class="header down">
+            <div class="title">左右居中</div>
+            <div class="expand" title="展开/缩放"></div>
+        </div>
+        <div class="box"></div>
+        <div onclick="handleToggleExpand(this)" class="header down">
+            <div class="title">上下垂直居中</div>
+            <div class="expand" title="展开/缩放"></div>
+        </div>
+        <div class="box"></div>
     </div>
 </body>
 <script src="./layout.js"></script>
