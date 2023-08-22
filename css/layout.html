@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Layout</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+    <div class="container">
+        <div onclick="handleToggleExpand(this)" class="header down">
+            <div class="title">左边定宽，右边自适应</div>
+            <div class="expand" title="展开/缩放"></div>
+        </div>
+        <div class="box clearfix">
+            <div class="subtitle">
+                <span class="sub-title">float + margin</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: left;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;margin-left: 120px;</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-1-1">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <div class="subtitle">
+                <span class="sub-title">float + calc</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: left;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;float: left;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: calc(100% - 120px)</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-1-2">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <div class="subtitle">
+                <span class="sub-title">inline-block + calc</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.parent-box {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;font-size: 0px</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;// 注意行内元素之间有默认间隙</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;display: inline-block;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;display: inline-block;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: calc(100% - 120px)</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-1-3">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+            <div class="subtitle">
+                <span class="sub-title">flex</span>
+                <span onclick="handleToggleCode(this)" class="arrow down" title="代码展示"></span>
+            </div>
+            <div class="code hide">
+                <div class="part">
+                    <div>.parent-box {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;display: flex;</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;flex-wrap: nowrap;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.left {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;width: 120px;</div>
+                    <div>}</div>
+                </div>
+                <div class="part">
+                    <div>.right {</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;flex: 1;</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <div class="content method-1-4">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./layout.js"></script>
+</html>
